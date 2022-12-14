@@ -1,9 +1,15 @@
 cmake_minimum_required(VERSION 3.5)
 project(calibration)
 
-find_package(OpenCV 4 REQUIRED)
+find_package(OpenCV REQUIRED)
+find_package(PCL 1.10 REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS} ${PCL_INCLUDE_DIRS})
 
-include_directories(${OpenCV_INCLUDE_DIRS})
-
-add_executable(main src/main.cpp)
-target_link_libraries(main ${OpenCV_LIBS})
+# add_executable(01 src/01.cpp)
+# target_link_libraries(01 ${OpenCV_LIBS})
+add_executable(001 src/001.cpp)
+target_link_libraries(001 ${OpenCV_LIBS})
+# add_executable(02 src/02.cpp)
+# target_link_libraries(02 ${OpenCV_LIBS})
+add_executable(03 src/03.cpp)
+target_link_libraries(03 ${OpenCV_LIBS} ${PCL_LIBRARIES})
